@@ -1,0 +1,58 @@
+﻿@model Car
+
+@{
+    ViewData["Title"] = "CreateCar";
+}
+
+<h1>Заполнение полей информации о новой машине</h1>
+
+<h4>Информация о новой машине</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Mark" class="control-label">Марка машины</label>
+                <input asp-for="Mark" class="form-control" />
+                <span asp-validation-for="Mark" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegNumber" class="control-label">Регистрационный номер</label>
+                <input asp-for="RegNumber" class="form-control" />
+                <span asp-validation-for="RegNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Admission" class="control-label">Дата поступления</label>
+                <input asp-for="Admission" class="form-control" />
+                <span asp-validation-for="Admission" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Defect" class="control-label">Дефект</label>
+                <input asp-for="Defect" class="form-control" />
+                <span asp-validation-for="Defect" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ending" class="control-label">Дата окончания ремонта</label>
+                <input asp-for="Ending" class="form-control" />
+                <span asp-validation-for="Ending" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cost" class="control-label">Стоимость в $</label>
+                <input asp-for="Cost" class="form-control" />
+                <span asp-validation-for="Cost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Добавить" class="btn btn-primary" /> |
+                <a asp-action="Index">Вернуться к просмотру таблицы</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+    
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

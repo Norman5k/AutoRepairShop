@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Repair>
+
+@{
+    ViewData["Title"] = "RepairsInfo";
+}
+
+<h1>Таблица с информацией о заказах</h1>
+
+<p>
+    <a asp-action="Create">Добавить новый заказ</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.RepairTypeSort">
+                @Html.DisplayNameFor(model => model.RepairType)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.CarSort">
+                @Html.DisplayNameFor(model => model.Car)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.WorkerSort">
+                @Html.DisplayNameFor(model => model.Worker)
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RepairType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Car!.Mark)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Worker!.Surname)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

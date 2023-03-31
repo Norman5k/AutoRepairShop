@@ -1,0 +1,41 @@
+﻿@model Repair
+
+@{
+    ViewData["Title"] = "EditRepairs";
+}
+
+<h1>Редактирования заказа</h1>
+
+<h4>Информация о заказе</h4>
+<hr />
+<div class="row">
+    <div class="col-md-5">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="CarId" class="control-label"> <b>Идентификатор автомобиля</b> </label>
+                <select asp-for="CarId" class="form-control" asp-items="ViewBag.CarId"></select>
+                <span asp-validation-for="CarId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkerId" class="control-label"> <b>Идентификатор работника</b></label>
+                <select asp-for="WorkerId" class="form-control" asp-items="ViewBag.WorkerId"></select>
+                <span asp-validation-for="WorkerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RepairType" class="control-label"> <b>Тип починки</b></label>
+                <input asp-for="RepairType" class="form-control" />
+                <span asp-validation-for="RepairType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить изменения" class="btn btn-primary" />
+                <a asp-action="Index">Вернуться к просмотру таблицы</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

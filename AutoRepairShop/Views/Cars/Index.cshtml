@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Car>
+
+@{
+    ViewData["Title"] = "CarsInfo";
+}
+
+<h1>Таблица с информацией о машинах</h1>
+
+<p>
+    <a asp-action="Create">Добавить новую информацию</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.CarIdSort">
+                @Html.DisplayNameFor(model => model.Id)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.MarkSort">
+                @Html.DisplayNameFor(model => model.Mark)
+                 </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.RegNumberSort">
+                @Html.DisplayNameFor(model => model.RegNumber)
+                 </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.AdmissionSort">
+                @Html.DisplayNameFor(model => model.Admission)
+                 </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.DefectSort">
+                @Html.DisplayNameFor(model => model.Defect)
+                 </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.EndingSort">
+                @Html.DisplayNameFor(model => model.Ending)
+                 </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.CostSort">
+                @Html.DisplayNameFor(model => model.Cost)
+                 </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mark)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Admission)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Defect)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ending)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

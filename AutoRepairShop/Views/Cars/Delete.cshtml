@@ -1,0 +1,59 @@
+﻿@model Car
+
+@{
+    ViewData["Title"] = "DeleteFromCars";
+}
+   
+<h1>Удаление информации о машине</h1>
+
+
+<div>
+    <h3>Информация об автомобиле</h3>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-3">
+            Марка машины
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.Mark)
+        </dd>
+        <dt class = "col-sm-3">
+            Регистрационный номер
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.RegNumber)
+        </dd>
+        <dt class = "col-sm-3">
+            Дата поступления в автомастерскую
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.Admission)
+        </dd>
+        <dt class = "col-sm-3">
+            Дефект
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.Defect)
+        </dd>
+        <dt class = "col-sm-3">
+            Дата окончания ремонта
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.Ending)
+        </dd>
+        <dt class = "col-sm-3">
+            Стоимость ремонта
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete" class="fig">
+        <h4>Вы уверены что хотите удалить данную информацию?</h4>
+        <h5>Обратите внимание, что при удалении автомобиля из базы, автоматически удалятся все связанные с ним заказы!</h5>
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |                    
+        <a asp-action="Index">Вернуться к просмотру таблицы</a>
+    </form>
+</div>

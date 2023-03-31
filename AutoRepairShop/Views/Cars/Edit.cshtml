@@ -1,0 +1,59 @@
+﻿@model Car
+
+@{
+    ViewData["Title"] = "EditСars";
+}
+
+<h1>Редактирование информации об автомобиле</h1>
+
+<h3>Информация об автомобиле</h3>
+<hr />
+<div class="row">
+    <div class="col-md-5">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Mark" class="control-label"><b>Марка машины</b></label>
+                <input asp-for="Mark" class="form-control" />
+                <span asp-validation-for="Mark" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegNumber" class="control-label"><b>Регистрационный номер</b></label>
+                <input asp-for="RegNumber" class="form-control" />
+                <span asp-validation-for="RegNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Admission" class="control-label"><b>Дата поступления в автомастерскую</b></label>
+                <input asp-for="Admission" class="form-control" />
+                <span asp-validation-for="Admission" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Defect" class="control-label"><b>Дефект</b></label>
+                <input asp-for="Defect" class="form-control" />
+                <span asp-validation-for="Defect" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ending" class="control-label"><b>Дата окончания ремонта</b></label>
+                <input asp-for="Ending" class="form-control" />
+                <span asp-validation-for="Ending" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cost" class="control-label"><b>Стоимость ремонта в $</b></label>
+                <input asp-for="Cost" class="form-control" />
+                <span asp-validation-for="Cost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить изменения" class="btn btn-primary" /> |
+                <a asp-action="Index">Вернуться к просмотру таблицы</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+    
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
